@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>慢慢买首页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/stylecs.css"/>
+</head>
+<body>
+<div class="layout">
+    <div class="header">
+        <!--顶栏-->
+        <div class="index_top">
+            <a class="index_top_left fl"></a>
+            <a class="index_top_right fr"></a>
+        </div>
+        <!--搜索框-->
+        <div class="index_search">
+            <div class="button fr">
+                <input type="button" value="搜索"/>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="请输入你想比价的商品"/>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--轮播图-->
+    <div class="index_slide">
+        <ul class="clearfix">
+            <li >
+                <img src="images/slide1.jpg" alt="1">
+            </li>
+            <li>
+                <img src="images/slide2.jpg" alt="2">
+            </li>
+            <li>
+                <img src="images/slide3.jpg" alt="3">
+            </li>
+            <li>
+                <img src="images/slide4.jpg" alt="4">
+            </li>
+        </ul>
+        <ul></ul>
+    </div>
+    <!--网站导航-->
+    <!--修改样式-->
+    <script type="text/template" id="index_nav_top">
+        <% for(var i=0;i< items.length;i++){ %>
+        <a href="<%=items[i].titlehref%>" class="menuItem fa fa-2x"><%=#items[i].img%></a>
+        <% } %>
+    </script>
+    <div class="ke">
+        <div class="circle index_nav">
+            <div class="ring index_nav_top">
+                <div class="clearfix navbox_top">
+                    <!--<a href="" class="menuItem fa  fa-2x">-->
+                    <!--<img src="images/ic_bcj.png" alt="" width="50px"/>-->
+                    <!--</a>-->
+                </div>
+            </div>
+            <a href="#" class="center fa  fa-2x" >
+                <img src="images/gengduo.png" alt="" width="80px"/>
+            </a>
+        </div>
+    </div>
+
+    <!--超值折扣推荐-->
+    <script type="text/template" id="discount">
+        <% for(var i=0;i< items.length;i++){ %>
+        <div class="pro">
+            <a href="inlanddiscount.html?productid=<%=items[i].productId%>">
+                <div class="pro_img"><%=#items[i].productImgSm%></div>
+                <div class="pro_info">
+                    <div class="pro_info_top">
+                        <span><%=items[i].productName%> </span>
+                        <span><%=items[i].productPinkage%></span>
+                    </div>
+
+                    <div class="pro_info_bottom">
+                        <div class="fl">
+                            <span><%=items[i].productFrom%></span> | <span><%=items[i].productTime%></span>
+                        </div>
+
+                        <div class="fr">
+                            <span class="icon icon_comment" style="font-size:15px;color:#999"></span><span><%=items[i].productComCount%></span>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+
+
+        </div>
+
+        <% } %>
+
+    </script>
+    <div class="index_disbar">
+        <a href="">
+            <h3>超值折扣推荐</h3>
+            <div><img src="images/more.png" alt=""/></div>
+        </a>
+    </div>
+    <div class="index_discount">
+    </div>
+    <!--更多优惠-->
+    <div class="index_more_discount">
+             <a href="inlanddiscount.html">更多优惠信息 »</a>
+    </div>
+        <!--品牌排行-->
+        <div class="index_disbar">
+            <a href="brand-content.html">
+                <h3>品牌排行</h3>
+                <div><img src="images/more.png" alt=""/></div>
+            </a>
+
+        </div>
+    <!--首页底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
+

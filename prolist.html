@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Prolist</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/Prolist.css"/>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/prolist.js"></script>
+    <script type="text/template" id="prolistTem">
+        <% for(var i = 0; i < result.length; i++){%>
+        <li>
+            <a href="prodetails.html?productid=<%=result[i].productId%>&categoryid=<%=result[i].categoryId%>">
+                <%=#result[i].productImg%>
+                <div class="info">
+                    <p class="tit"><%=result[i].productName%></p>
+
+                    <p>
+                        <span class="price"><%=result[i].productPrice%></span>
+        <span class="star">
+        <% if((i+1)%2 ==0){%>
+            <em class="star3"></em>
+        <%}else if(i%3==0){%>
+            <em class="star5"></em>
+        <%}else if(i%2==0){%>
+            <em class="star4"></em>
+        <%}%>
+        </span>
+                    </p>
+
+                    <p class="other">
+                        <span><%=result[i].productQuote%></span>
+                        <span class="comment">全网<%=result[i].productCom%></span>
+                    </p>
+                </div>
+            </a>
+        </li>
+
+        <% }%>
+    </script>
+    <script type="text/template" id="prolistTem2">
+        <% for(var i = 0; i < items.length; i++){%>
+        <li>
+            <a href="prodetails.html?productid=<%=items[i].productId%>&categoryid=<%=items[i].categoryId%>">
+                <%=#items[i].productImg%>
+                <div class="info">
+                    <p class="tit"><%=items[i].productName%></p>
+
+                    <p>
+                        <span class="price"><%=items[i].productPrice%></span>
+        <span class="star">
+        <% if((i+1)%2 ==0){%>
+            <em class="star3"></em>
+        <%}else if(i%3==0){%>
+            <em class="star5"></em>
+        <%}else if(i%2==0){%>
+            <em class="star4"></em>
+        <%}%>
+        </span>
+                    </p>
+
+                    <p class="other">
+                        <span><%=items[i].productQuote%></span>
+                        <span class="comment">全网<%=items[i].productCom%></span>
+                    </p>
+                </div>
+            </a>
+        </li>
+
+        <% }%>
+    </script>
+    <script type="text/template" id="currentlistTem">
+        <a href="javascript:;"><%=result[0].category%></a>
+    </script>
+</head>
+<body>
+<div class="prolist">
+    <div class="header">
+        <!--顶栏-->
+        <div class="index_top">
+            <a href="index-real.html" class="index_top_left fl"></a>
+            <a class="index_top_right fr"></a>
+        </div>
+        <!--搜索框-->
+        <div class="index_search">
+            <div class="button fr">
+                <input type="button" value="搜索"/>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="请输入你想比价的商品" name="" id=""/>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="prolist_box">
+        <div class="prolist_nav">
+            <a href="index-real.html">首页</a>
+            <span>&gt;</span>
+            <a href="category.html">全部分类</a>
+            <span>&gt;</span>
+            <span id="currentlist">
+            </span>
+            <span>&gt;</span>
+            <a href="javascript:;" class="fr select screenBox">筛选</a>
+        </div>
+        <p class="loading"><span class="icon icon_refresh"></span></p>
+        <div class="screen" id="screenBox">
+            <ul>
+                <li>
+                    <a href="javascript:;" id="bansc">按品牌</a>
+                </li>
+                <li>
+                    <a href="">按价格</a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="prisc">按价格↓</a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="volsc">按销量↓</a>
+                </li>
+                <li>
+                    <a href="javascript:;" id="defsc">默认排序</a>
+                </li>
+            </ul>
+            <div id="cancelscreen">
+                <a href="javascript:;" class="cancelscreen">取消</a>
+            </div>
+        </div>
+        <div class="prolist_content">
+            <ul id="prolist_content">
+
+            </ul>
+        </div>
+        <div class="paging">
+            <ul class="clearfix">
+                <li>
+                    <a href="" id="prepage">上一页</a>
+                </li>
+                <li>
+                    <select name="" id="selpage">
+
+                    </select>
+                </li>
+                <li>
+                    <a href="javascript:;" id="nextpage">下一页</a>
+                </li>
+            </ul>
+        </div>
+        <div style="text-align: center; height: 36px;line-height: 24px; padding-top: 12px;">
+            <a href="">平板电视十大品牌</a> |
+            <a href="">平板电视口碑大全</a>
+        </div>
+    </div>
+    <!--首页底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix" style="border-bottom: 1px solid #ccc;">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span
+                    style="color:grey"> -- 掌上比价平台</span></p>
+
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名"/>
+            <input type="password" placeholder="请输入密码"/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名"/>
+            <input type="password" placeholder="请输入密码"/>
+            <input type="tel" placeholder="请输入电话"/>
+            <input type="email" placeholder="请输入邮箱"/>
+            <input type="submit" value="注册"/>
+        </form>
+    </div>
+    <!--底部特效-->
+    <script>
+        //点击登录
+        function letDivCenter(divName) {
+            var top = ($(window).height() - $(divName).height()) / 2;
+            var left = ($(window).width() - $(divName).width()) / 2;
+            var scrollTop = $(document).scrollTop();
+            var scrollLeft = $(document).scrollLeft();
+            $(divName).css({position: 'absolute', 'top': top + scrollTop, left: left + scrollLeft}).show();
+        }
+
+        $("#login").on("click", function () {
+
+            letDivCenter($(".login"));
+
+        });
+        $(".login>.cancel").on("click", function () {
+            $(this).parent().hide();
+        });
+
+        //点击注册
+        $("#regist").on("click", function () {
+
+            letDivCenter($(".regist"));
+
+        });
+        $(".regist>.cancel").on("click", function () {
+            $(this).parent().hide();
+        });
+        $(".backtop").on("click", function () {
+            $(window).scrollTop(0);
+        })
+    </script>
+    <div class="app_promotion_bar">
+        <a href="javascript:;" class="close"></a>
+
+        <div class="icon_man"></div>
+        <p style="font-size: 16px; font-weight: 600">慢慢买</p>
+
+        <p>全网比价，省钱专家</p>
+        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.manmanbuy.bijia" class="ins">立即打开</a>
+    </div>
+</div>
+</body>
+</html>

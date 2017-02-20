@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>优惠券</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/couponproduct.css"/>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/couponproduct.js"></script>
+</head>
+<body>
+<div class="layout">
+    <!-- 头部-->
+    <header>
+        <div class="back fl">
+            <a href="coupon.html" class="icon icon_back"></a>
+        </div>
+        <h1>优惠券</h1>
+        <div class="home fr">
+        </div>
+    </header>
+    <!--中部-->
+
+    <script type="text/template" id="cp_temp">
+        <%for(var i=0;i< result.length;i++){%>
+        <li>
+            <a href="javascript:;" title="<%=result[i].couponProductName%>">
+                <div class="pic"><%=#result[i].couponProductImg%></div>
+                <div class="info">
+                    <div class="tit">
+                        <h3><%=result[i].couponProductName%></h3>
+                        <h2><%=result[i].couponProductPrice%></h2>
+                    </div>
+                    <div class="time"><%=result[i].couponProductTime%></div>
+                </div>
+                <div class="pic_click icon icon_more"></div>
+            </a>
+            <div class="pic_hidden"><a href="choujiang.html"><%=#result[i].couponProductImg%></a></div>
+        </li>
+       <% } %>
+    </script>
+        <div class="cp_main">
+            <ul class="clearfix cp_box">
+
+            </ul>
+
+       </div>
+    <!--返回首页-->
+    <div class="back_step">
+        <a href="index-real.html">首页</a>&nbsp;&gt;&nbsp;
+        <a href="coupon.html">优惠券</a>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+    <!--底部特效-->
+
+
+</div>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>白菜价</title>
+    <link rel="stylesheet" href="css/baicaijia.css"/>
+</head>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/template-native.js"></script>
+<script src="lib/common.js"></script>
+<script src="js/baicaijia.js"></script>
+<script src="lib/swipe.js"></script>
+
+<body>
+<script type="text/template" id="header">
+    <% for(var i = 0; i < result.length; i++) { %>
+    <li><a href="#" class="<%=i==0?'active':''%>"><%=result[i].title%></a></li>
+   <% } %>
+</script>
+<script type="text/template" id="product">
+    <%for(var i = 0; i < result.length; i++) {%>
+    <a biz-itemid="538754112089" class="gobuy" isconvert="1" href="http://s.click.taobao.com/lkqGHQx" target="_blank"></a>
+    <div class="container clearfix">
+            <div><%=#result[i].productImg%></div>
+            <div><%=#result[i].productName%></div>
+            <div><%=#result[i].productPrice%></div>
+            <div><%=#result[i].productCouponRemain%></div>
+            <div><%=#result[i].productCoupon%></div>
+            <div><%=#result[i].productHref%></div>
+    </div>
+    <%}%>
+</script>
+<div class="cabbage">
+    <div class="tonglang">
+        <span><a href="index-real.html"></a></span>
+        <span><a href="javascirpt:;"></a></span>
+        <h3>白菜价-淘宝内部劵</h3>
+    </div>
+    <div class="header" >
+        <div class="left">
+            <ul>
+            </ul>
+        </div>
+        <div class="right"></div>
+    </div>
+    <div class="product">
+    </div>
+    <div class="backHeader">
+    </div>
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" />
+            <input type="password" placeholder="请输入密码" />
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" />
+            <input type="password" placeholder="请输入密码" />
+            <input type="tel" placeholder="请输入电话" />
+            <input type="email" placeholder="请输入邮箱" />
+            <input type="submit" value="注册"/>
+        </form>
+    </div>
+    <!--底部特效-->
+    <script>
+        //点击登录
+        function letDivCenter(divName){
+            var top = ($(window).height() - $(divName).height())/2;
+            var left = ($(window).width() - $(divName).width())/2;
+            var scrollTop = $(document).scrollTop();
+            var scrollLeft = $(document).scrollLeft();
+            $(divName).css( { position : 'absolute', 'top' : top + scrollTop, left : left + scrollLeft } ).show();
+        }
+
+        $("#login").on("click",function(){
+
+            letDivCenter($(".login"));
+
+        });
+        $(".login>.cancel").on("click",function(){
+            $(this).parent().hide();
+        });
+
+        //点击注册
+        $("#regist").on("click",function(){
+
+            letDivCenter($(".regist"));
+
+        });
+        $(".regist>.cancel").on("click",function(){
+            $(this).parent().hide();
+        });
+        $(".backtop").on("click",function(){
+            $(window).scrollTop(0);
+        })
+    </script>
+
+</div>
+</body>
+</html>

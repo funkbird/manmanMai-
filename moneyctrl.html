@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>省钱控</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/moneyctrl.css"/>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/moneyctrl.js"></script>
+    <!--加入可以删除元素的插件-->
+    <script src="lib/slip.js"></script>
+</head>
+<body>
+<div class="layout">
+    <!-- 头部-->
+    <header>
+        <div class="back fl">
+            <a href="index-real.html" class="icon icon_back"></a>
+        </div>
+        <h1>省钱控 - 最新优惠</h1>
+        <div class="home fr">
+        </div>
+    </header>
+    <!-- main-->
+    <main>
+        <ul id="slippylist" tabindex="0" aria-role="listbox" >
+
+        </ul>
+        <div class="clearfix page" id="selectPage">
+
+        </div>
+    </main>
+    <!--首页底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
+<!--生成内容的模板-->
+<script type="text/template" id="product">
+    <% for(var i=0; i< result.length;i++){ %>
+    <li class="clearfix ui-border-b" aria-role="option" tabindex="-1">
+        <a href="moneyproduct.html?productId=<%= result[i].productId %>">
+            <div class="pic"><%=#result[i].productImgSm %></div>
+            <div class="clearfix info">
+                <div class="title"><%= result[i].productName %><span><%= result[i].productPinkage %></span></div>
+                <div class="other"><span class="mall"><%= result[i].productFrom %> | 10-25 14:10</span><span class="comment"><i class="icon icon_comment"></i><%= result[i].productComCount %></span></div>
+            </div>
+        </a>
+    </li>
+    <% } %>
+</script>
+<!--选择页码的模板-->
+<script type="text/template" id="gotoPage">
+    <% if(pageid==1){ %>
+        <span class="w33"><a href="moneyctrl.html?pageid=1">上一页</a></span>
+    <%}else{ %>
+        <span class="w33"><a href="moneyctrl.html?pageid=<%= pageid-1%>">上一页</a></span>
+    <% } %>
+    <span class="w33">
+        <select  name="select" selected="" id="selectBox">
+            <% for(var i=1; i<= pageNumber;i++){ %>
+                <% if(i==pageid){ %>
+                    <option value="<%= i %>" selected="selected"><%= i %>/<%= pageNumber %></option>
+                <%}else{ %>
+                    <option value="<%= i %>"><%= i %>/<%= pageNumber %></option>
+                <% } %>
+            <% } %>
+        </select>
+    </span>
+    <% if(pageid==pageNumber){ %>
+        <span class="w33"><a href="moneyctrl.html?pageid=<%= pageNumber %>">下一页</a></span>
+    <%}else{ %>
+        <span class="w33"><a href="moneyctrl.html?pageid=<%= pageid+1%>">下一页</a></span>
+    <% } %>
+</script>
+

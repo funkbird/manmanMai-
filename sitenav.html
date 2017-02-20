@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>商城导航</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/moneyctrl.css"/>
+    <link rel="stylesheet" href="css/sitenav.css">
+    <link rel="stylesheet" href="lib/csshake.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/zepto.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/sitenav.js"></script>
+</head>
+<body>
+<div class="layout">
+    <!-- 头部-->
+    <header>
+        <div class="back fl">
+            <a href="index-real.html" class="icon icon_back"></a>
+        </div>
+        <h1>商城导航</h1>
+        <div class="home fr">
+        </div>
+    </header>
+    <!--商城模板-->
+    <script type="text/html" id="sitenavTemp">
+        <%for(var i = 0; i < result.length; i++){ %>
+        <a href="<%=result[i].navHref%>">
+            <img src="<%=result[i].navImg%>" alt="">
+            <span><%=result[i].navTitle%></span>
+        </a>
+        <% } %>
+    </script>
+    <main class="site-nav">
+        <div class="link">
+        </div>
+        <!--红包-->
+        <div class="page_rain">
+            <div class="div bg_1"></div>
+            <div class="red" style="display: none">
+                <span style="background-image: url(images/chai.png);"></span>
+                <button class="redbutton" type="领取红包">拆红包</button>
+                <div class="red-jg">
+                    <h1>恭喜您</h1>
+                    <h5>获得iPhone 8 128g手机一部</h5>
+                    <div class="t-btn">
+                        <button>立即领取</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--首页底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name=""/>
+            <input type="password" placeholder="请输入密码" name=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+    <!--红包效果-->
+    <script>
+        var a =0;
+        var Timerr = setInterval(aa,200);
+        setInterval(function(){
+            for(var jj=0;jj<$('.div>div').size()/4;jj++){
+                $('.div>div').eq($('.div>div').size()-jj).remove();
+            }
+        },1000);
+        function aa(){
+            for(var i=0;i<4;i++){
+                var j=parseInt(Math.random()*1600+000);
+                var j1=parseInt(Math.random()*300+300);
+                var n=parseInt(Math.random()*10+(-10));
+                $('.div').prepend('<div class="dd"></div>');
+                $('.div').children('div').eq(0).css({'left':j,'top':n});
+                $('.div').children('div').eq(0).animate({'left':j-j1,'top':$(window).height()+20},3000);
+            };
+        };
+        $(document).on('touchstart', '.dd', function(){
+            $(this).css("background-position","0 -100px");
+            a++;
+            if(a == 5){
+                $(".red").show();
+                clearInterval(Timerr,20);
+            };
+        });
+        $(document).on('touchend','.dd',function () {
+           $(this).css("display","none");
+        });
+        $(document).ready(function() {
+            $('.redbutton').click(function(){
+                $('.red').addClass('shake-chunk');
+                setTimeout(function(){
+                    $('.red').removeClass('shake-chunk');
+                    $('.redbutton').css("display" , "none");
+                    $('.red > span').css("background-image" , "url(images/red-y.png)");
+                    $('.red-jg').css("display" , "block");
+                    $(document).on('touchend','.page_rain',function () {
+                        $(this).css("display","none");
+                    });
+                },2000);
+            });
+        });
+    </script>
+</div>
+</div>
+</body>
+</html>
+

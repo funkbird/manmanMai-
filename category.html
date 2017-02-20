@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>慢慢买</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/price.css"/>
+    <script src=lib/jquery.min.js></script>
+    <script src=lib/template-native.js></script>
+    <script src="lib/common.js"></script>
+    <script src="js/price.js"></script>
+    <script src="lib/slip.js"></script>
+
+</head>
+
+<script type="text/template" id="cateTitleTemp">
+   <% for(var i=0; i< result.length; i++){ %>
+    <div class="categoryTitle " titleId=<%=titleid%> aria-role="option" tabindex="-1">
+        <a href="javascript:;"><%=result[i].title%> <span></span><span></span></a>
+    </div>
+   <% } %>
+</script>
+<script type="template/text" id="detialTemp">
+    <ul class=detial>
+       <% for(var i=0;i< result.length;i++){ %>
+        <li><a href="prolist.html?categoryid=<%=result[i].categoryId%>&category=<%=result[i].category%>&pageid=1"><%=result[i].category%></a></li>
+       <% } %>
+    </ul>
+</script>
+<div class="layout">
+    <div class="header">
+        <!--顶栏-->
+        <div class="index_top">
+            <a class="index_top_left fl"></a>
+            <a class="index_top_right fr"></a>
+        </div>
+        <!--搜索框-->
+        <div class="index_search">
+            <div class="button fr">
+                <input type="button" value="搜索"/>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="请输入你想比价的商品" name="" id=""/>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="category" id="slippylist" tabindex="0" aria-role="listbox">
+        <!--<div class="categoryTitle ">-->
+            <!--<a href="javascript:;">大家电 <span></span><span></span></a>-->
+            <!--<ul class=detial>-->
+                <!--<li><a href="#">平板</a></li>-->
+                <!--<li><a href="#">平板</a></li>-->
+                <!--<li><a href="#">平板</a></li>-->
+                <!--<li><a href="#">平板</a></li>-->
+                <!--<li><a href="#">平板</a></li>-->
+                <!--<li><a href="#">平板</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li><a href=""><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" />
+            <input type="password" placeholder="请输入密码" name="" />
+            <input type="submit" value="登录" id="sub"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+    <!--底部特效-->
+
+</div>
+<script>
+    window.onload=function(){
+       var inputs=document.querySelectorAll(".regist input")
+        console.log(inputs)
+        inputs[4].addEventListener("click",function(){
+            window.localStorage.setItem(inputs[0].value,inputs[1].value);
+//            注册成功提示
+
+        })
+
+        var inputss=document.querySelectorAll(".login input")
+        console.log(inputss)
+        inputss[2].addEventListener("click",function(){
+            if(!window.localStorage.getItem(inputss[0].value)){
+                alert("用户名不存在")
+            }else if(window.localStorage.getItem(inputss[0].value)==inputss[1].value){
+                alert("登陆成功")
+
+            }else{
+                alert("密码错误")
+            }
+
+        })
+    }
+
+</script>
+<script>
+    var ol = document.getElementById('slippylist');
+    ol.addEventListener('slip:beforereorder', function(e){
+        if (/demo-no-reorder/.test(e.target.className)) {
+            e.preventDefault();
+        }
+    }, false);
+
+    ol.addEventListener('slip:beforeswipe', function(e){
+        if (e.target.nodeName == 'INPUT' || /demo-no-swipe/.test(e.target.className)) {
+            e.preventDefault();
+        }
+    }, false);
+
+    ol.addEventListener('slip:beforewait', function(e){
+        if (e.target.className.indexOf('instant') > -1) e.preventDefault();
+    }, false);
+
+    ol.addEventListener('slip:afterswipe', function(e){
+        e.target.parentNode.appendChild(e.target);
+    }, false);
+
+    ol.addEventListener('slip:reorder', function(e){
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        return false;
+    }, false);
+
+    new Slip(ol);
+</script>
+
+</body>
+
+
+</html>

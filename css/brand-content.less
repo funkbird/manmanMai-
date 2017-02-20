@@ -1,0 +1,218 @@
+.bgc(@color:#EEEEEE){
+  background-color: @color;
+}
+.border(@width:1px,@style:solid,@color:#ccc){
+  border: @width @style @color;
+}
+.boder-bot(){
+  border-bottom: 1px solid #ccc;
+}
+nav {
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  font-size: 14px;
+  a{
+    font-size: 14px;
+    color: #e92322;
+    font-weight: 700;
+    padding: 0 5px;
+  }
+}
+.brand-content {
+  width: 100%;
+  height: 100%;
+  >.hd{
+    display: flex;
+    .bgc();
+    .border();
+    span {
+      flex: 1;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+    }
+    span.active {
+      .bgc(lightblue);
+      color: #e92322;
+    }
+  }
+  >section{
+    display: none;
+    .bgc(#fff);
+    .border();
+  }
+  >section.active {
+    display: block;
+  }
+  >section.brandTitle {
+    >ul{
+      >li{
+        padding: 10px;
+        .boder-bot();
+        >a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          >em{
+            display: inline-block;
+            vertical-align: top;
+            width: 20px;
+            height: 20px;
+            .bgc(#ddd);
+            top: 0;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+          }
+          >.inner {
+            display: inline-block;
+            margin-left: 10px;
+            >.title{
+              font-size: 16px;
+              color: #333;
+            }
+            >p{
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      >li:nth-of-type(1) {
+        em {
+          .bgc(red)
+        }
+      }
+      >li:nth-of-type(2) {
+        em {
+          .bgc(#ffe430)
+        }
+      }
+      >li:nth-of-type(3) {
+        em {
+          .bgc(green)
+        }
+      }
+    }
+  }
+  >section.brandRange{
+    >ul{
+      >li {
+        height: 120px;
+        padding: 10px;
+        .boder-bot();
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          >.pic{
+            float: left;
+            width: 110px;
+            height: 100px;
+            >img {
+              display: block;
+              width: 100px;
+              height: 100px;
+              vertical-align: top;
+            }
+          }
+          >.info {
+            height: 100%;
+            overflow: hidden;
+            >.tit {
+              color: #333;
+              font-size: 14px;
+            }
+            >.price{
+              padding-top: 20px;
+              font-size: 20px;
+              color: #e92322;
+            }
+            >.other {
+              line-height: 30px;
+              >em{
+                padding: 0 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  >section.brandComment{
+    >ul{
+      padding: 10px;
+      >li {
+        .border();
+        margin-top: 20px;
+        .protit {
+          img{
+            display:block;
+            width: 100px;
+            height: 100px;
+            float: left;
+          }
+          p{
+            overflow: hidden;
+            height: 100px;
+            padding-top: 30px;
+            padding-left: 10px;
+          }
+        }
+        .plbox{
+          background: #eee;
+          padding: 10px;
+          border: 1px solid #ccc;
+          position: relative;
+          >.con{
+            line-height: 20px;
+          }
+          >.from{
+            margin-top: 5px;
+            color: #e92322;
+          }
+          >.name{
+            line-height: 30px;
+            >i{
+              float: right;
+            }
+            .star{width:90px;vertical-align: top;margin-left: 10px;margin-top: 3px;}
+            .star,.star1,.star2,.star3,.star4,.star5{display:inline-block;height:18px;}
+            .star1,.star2,.star3,.star4,.star5{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="#ff9000" d="M496.529 75.126l112.468 346.201H973.01l-294.48 213.977 112.48 346.2-294.48-213.966-294.54 213.966 112.483-346.2L19.99 421.327h364.014L496.53 75.126z"/></svg>');width:20px}
+            .star1{width:18px}
+            .star2{width:35px}
+            .star3{width:55px}
+            .star4{width:70px}
+            .star5{width:90px}
+            .price .star{float:right}
+          }
+        }
+        .plbox::before,.plbox::before{
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          left: 29px;
+          top: -8px;
+          border-bottom: 8px solid #ccc;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+        }
+        .plbox::after{
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          left: 29px;
+          top: -5px;
+          border-bottom: 8px solid #eee;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+        }
+
+    }
+
+    }
+  }
+}

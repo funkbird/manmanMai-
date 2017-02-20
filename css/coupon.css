@@ -1,0 +1,83 @@
+html,body {
+    width: 100%;
+    height: 100%;
+}
+.layout {
+    width: 100%;
+    height: 100%;
+}
+header {
+    width: 100%;
+    height: 44px;
+    text-align: center;
+    display: flex;
+    line-height: 44px;
+    background-color: #e92322;
+}
+header .back,
+header .home {
+    width: 50px;
+    height: 100%;
+}
+header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    flex:1;
+}
+header .back a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    color: #ffffff;
+}
+header .home {
+    background-size:30px 30px;
+    background-clip: content-box;
+    background-image: url(../images/header_app.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+/*ÖÐ²¿*/
+
+.coupon_main{
+    width: 100%;
+    height: 110px;
+}
+.coupon_main>ul{
+    width: 100%;
+    height: 100px;
+    margin:5px auto;
+}
+.coupon_main>ul>li{
+    width: 25%;
+    height: 100%;
+    float:left;
+    padding:5px;
+}
+.coupon_main>ul>li>a{
+    display:block;
+    border:1px solid #999;
+    height: 100%;
+    text-align: center;
+}
+.coupon_main>ul>li>a>img{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-top:10px;
+}
+
+/*ºóÍË*/
+.back_step{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left:20px;
+    font-size: 15px;
+    color:#666;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    background:linear-gradient(to bottom,#fff,#f1f1f1);
+}

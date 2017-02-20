@@ -1,0 +1,122 @@
+.layout{
+    width:100%;
+    background-color: #fff;
+    height:auto;
+}
+a{
+    color:#000;
+}
+a:hover{
+    color:#000;
+}
+a:active{
+    color:#000;
+}
+header{
+    height:101px;
+    width:100%;
+    border-bottom:1px solid #ddd;
+}
+.category{
+    margin:5px;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+.categoryTitle{
+    border-bottom:1px solid #ddd;
+    position:relative;
+}
+
+.categoryTitle>a>span{
+    position:absolute;
+    right:0px;
+    width:30px;
+    top: 16px;
+    height:40px;
+}
+.categoryTitle>a>span:first-of-type{
+    background:url("../images/arrow1.gif") no-repeat;
+}
+.categoryTitle>a>span:last-of-type{
+    background:url("../images/arrow2.gif") no-repeat;
+    display:none;
+}
+.categoryTitle.active>a>span:first-of-type{
+    background:url("../images/arrow1.gif") no-repeat;
+    display:none;
+}
+.categoryTitle.active>a>span:last-of-type{
+    background:url("../images/arrow2.gif") no-repeat;
+    display:block;
+}
+.categoryTitle.active{
+    border-bottom:2px solid #aaa;
+}
+.categoryTitle>a{
+    height:100%;
+    display:inline-block;
+    line-height: 40px;
+    background-color: #EBEBEB;
+    width:100%;
+    font-size:16px;
+    font-weight:700;
+    padding-left:16px;
+}
+.categoryTitle>ul{
+    height:0px;
+    overflow:hidden;
+}
+.categoryTitle.active>ul{
+    height:auto;
+}
+.categoryTitle>ul>li{
+    float:left;
+    width:33.3%;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom:1px solid #ccc;
+    box-sizing:border-box;
+    border-right:1px solid #ccc;
+}.categoryTitle>ul>li:nth-of-type(3n){
+    border-right:none;
+ }
+ .categoryTitle>ul>li>a{
+     display:block;
+     width:100%;
+     height:100%;
+ }
+ /*.categoryTitle>ul>li:nth-last-of-type(-n+3){*/
+    /*border-bottom:none;*/
+/*}*/
+ /*.login{*/
+     /*margin-top:25px;*/
+     /*border-top:1px solid #ccc;*/
+     /*height:34px;*/
+     /*border-bottom:1px solid #ccc;*/
+     /*background-color: #ebebeb;*/
+ /*}*/
+/*.login ul{*/
+    /*height:34px;*/
+/*}*/
+ /*.login ul li{*/
+     /*float:left;*/
+     /*width:33.3%;*/
+     /*height:34px;*/
+     /*line-height: 34px;*/
+     /*text-align: center;*/
+     /*border-right:1px solid #ccc;*/
+ /*}*/
+ /*.login ul li:last-of-type{*/
+     /*border:none;*/
+ /*}*/
+
+ /*footer{*/
+     /*margin-top:15px;*/
+     /*padding:0px 0 15px 0;*/
+     /*text-align: center;*/
+     /*background-color: #ebebeb;*/
+ /*}*/
+ /*footer a:first-of-type{*/
+     /*color:#e92322;*/
+ /*}*/

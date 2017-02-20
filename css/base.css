@@ -1,0 +1,403 @@
+/*css 初始化 */
+@charset "UTF-8";
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    font-family: "Microsoft YaHei",sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/*去掉原样式中的小黑点*/
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+/*输入字居中显示*/
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+/**/
+textarea {
+    resize: none;
+}
+
+/*防止拖动*/
+img {
+    border: 0;
+    vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+}
+
+table {
+    border-collapse: collapse; /*合并外连线*/
+}
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
+    color: #666; /*150%基于当前字体尺寸的百分比行间距*/
+    background: #ededed;
+}
+
+.clearfix:before, .clearfix:after {
+    /*清除浮动，最好最标准的写法*/
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+    /*兼容IE6下的写法*/
+}
+
+a {
+    color: #666; /*a标签下的文字 不继承颜色*/
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #C81623;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    /*一般起装饰性的作用*/
+    font-style: normal;
+    text-decoration: none;
+}
+
+.col-red {
+    color: #C81623 !important; /*京东主色调*/
+}
+
+/*公共类*/
+.w {
+    /*版心 提取 */
+    width: 1222px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.al {
+    text-align: left;
+}
+
+.ac {
+    text-align: center;
+}
+
+.ar {
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
+.m_l10{
+    margin-left: 10px;
+}
+.m_r10{
+    margin-right: 10px;
+}
+
+/*css初始化完成*/
+
+/* 字体图标 */
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts/iconfont.eot'); /* IE9*/
+    src: url('../fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont.woff') format('woff'), /* chrome, firefox */
+    url('../fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.icon {
+    font-family:"iconfont" !important;
+    color: red;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon_category::before {/*粗列表标志*/
+    content: "\e6d2";
+}
+.icon_back::before {/*返回上一级标志*/
+    content: "\e697";
+}
+.icon_cart::before {/*购物车标志*/
+    content: "\e698";
+}
+.icon_category_thin::before {/*细列表标志*/
+    content: "\e699";
+}
+.icon_close::before {/*关闭标志*/
+    content: "\e69a";
+}
+.icon_delete::before {/*删除标志*/
+    content: "\e69d";
+}
+.icon_edit::before {/*写入标志*/
+    content: "\e69e";
+}
+.icon_less::before {/*上箭头*/
+    content: "\e6a5";
+}
+.icon_unfold::before {/*下箭头*/
+    content: "\e6a6";
+}
+.icon_more::before {/*右箭头标志*/
+    content: "\e6a7";
+}
+.icon_refresh::before {/*刷新标志*/
+    content: "\e6aa";
+}
+.icon_search::before {/*搜索标志*/
+    content: "\e6ac";
+}
+.icon_set::before {/*设置标志*/
+    content: "\e6ae";
+}
+.icon_bad::before {/*差评标志*/
+    content: "\e716";
+}
+.icon_refresh::before {/*刷新标志*/
+    content: "\e6aa";
+}
+.icon_good::before {/*点赞标志*/
+    content: "\e717";
+}
+.icon_phone::before {/*电话标志*/
+    content: "\e725";
+}
+.icon_star_hollow::before {/*空心星星标志*/
+    content: "\e66e";
+}
+.icon_star_solid::before {/*实心星星标志*/
+    content: "\e645";
+}
+.icon_comment::before {/*评论标志*/
+    content: "\e60b";
+}
+
+/*顶部*/
+/*顶栏*/
+.header{
+    width: 100%;
+}
+.header .index_top{
+    width: 100%;
+    height: 50px;
+    background: #e92322;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.header .index_top>.index_top_left{
+    width: 185px;
+    height: 25px;
+    background: url("../images/header_logo.png") no-repeat;
+    background-size:185px 25px;
+    margin-left: 20px;
+}
+.header .index_top>.index_top_right{
+    width: 34px;
+    height: 34px;
+    background: url("../images/header_app.png") no-repeat;
+    background-size: 35px 34px;
+    margin-right:10px;
+}
+/*搜索框*/
+.header .index_search{
+    width: 100%;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    padding:0 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header .index_search>.search{
+    height: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top:10px;
+}
+.header .index_search>.search>input{
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    background: #eee;
+    text-indent: 30px;
+}
+.header .index_search>.button{
+    width: 73px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top:10px;
+}
+.header .index_search>.button>input{
+    width: 63px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    background: #e92322;
+    color:#fff;
+    font-size:17px;
+    text-align: center;
+}
+
+/*底部*/
+/*首页底部*/
+.footer{
+    width: 100%;
+}
+.index_footer{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    height: 34px;
+    margin-top:10px;
+}
+.index_footer>ul>li{
+    float:left;
+    width: 33.3%;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-right:1px solid #ccc;
+}
+.index_footer>ul>li:last-of-type{
+    border:none;
+}
+.index_footer .totop{
+    display:inline-block;
+    width: 15px;
+    height: 15px;
+    background: url("../images/top.jpg") no-repeat;
+    background-size: 15px 15px;
+    margin-bottom:-2px;
+}
+.index_footer p:first-of-type{
+    margin-top:20px;
+    text-align: center;
+}
+.index_footer p:last-of-type{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*登录*/
+
+.login,.regist{
+    width: 300px;
+    height: 400px;
+    border:1px solid #ccc;
+    border-radius: 10px;
+    background: #f1f1f1;
+    position: absolute;
+    display: none;
+}
+.login>form,.regist>form{
+    width: 100%;
+    height: 100%;
+}
+.login>form>input,.regist>form>input{
+    display:block;
+    width: 250px;
+    height: 30px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    margin:40px auto;
+    text-indent: 10px;
+
+
+}
+.login>form>input:last-of-type,.regist>form>input:last-of-type{
+    background: linear-gradient(to bottom,#eee,#ddd);
+}
+
+.login>.cancel,.regist>.cancel{
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    border:1px solid #ccc;
+    color:#ccc;
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.regist form {
+    padding-top: 30px;
+    padding: 20px;
+
+}
+.regist form input {
+    margin: 10px auto 0;
+}
+.regist form p {
+    height: 14px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #e92322;
+}
+.regist form input[type=button] {
+    height: 28px;
+    padding: 5px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-top: 9px;
+    vertical-align: middle;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+.regist form #invalidate {
+    width: 50%;
+    display: inline-block;
+}

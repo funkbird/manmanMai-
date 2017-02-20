@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>凑单品</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/coudanping.css"/>
+</head>
+<body>
+<div class="layout">
+    <!-- 头部-->
+    <header>
+        <div class="back fl">
+            <a href="index.html" class="icon icon_back"></a>
+        </div>
+        <h1>凑单品</h1>
+        <div class="home fr">
+        </div>
+    </header>
+    <!-- nav 导航-->
+    <nav>
+        <ul>
+            <li><span>京东</span><span></span></li>
+            <li><span>华北</span><span></span></li>
+            <li><span>全部价格</span><span></span></li>
+        </ul>
+        <div class="search icon icon_search"></div>
+        <div class="select hide">
+            <ul>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <ul id="container" class="masonry" style="position: relative; height: 0px;">
+        </ul>
+    </main>
+    <!--首页底部-->
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li class="backtop"><a href="javascript:;"><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="register.php">
+            <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+            <p></p>
+            <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+            <p></p>
+            <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+            <p></p>
+            <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+            <p></p>
+            <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+            <p></p>
+            <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+            <br/>
+            <input type="submit" value="注册" id="register"/>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/template-native.js"></script>
+<script src="lib/common.js"></script>
+<script type="text/template" id="selectShop">
+    <% for(var i=0; i< result.length; i++){ %>
+    <li class="<%= result[i].shopId %>"><%= result[i].shopName %></li>
+    <% } %>
+</script>
+<script type="text/template" id="selectArea">
+    <% for(var i=0; i< result.length; i++){ %>
+    <li class="<%= result[i].areaId %>"><%= result[i].areaName %></li>
+    <% } %>
+</script>
+<script type="text/template" id="product">
+    <% for(var i=0; i< result.length; i++){ %>
+    <li>
+        <a href="http://item.m.jd.com/ware/view.action?wareId=<%= result[i].productId %>" class="item border-img">
+            <img src="<%= result[i].productImg %>">
+            <div class="title"><%= result[i].productName %></div>
+            <div class="other clearfix">
+                <div class="price fl m_l10"><%= result[i].productPrice %></div>
+                <div class="btn fr m_r10">去凑单</div>
+            </div>
+        </a>
+    </li>
+    <% } %>
+</script>
+<script>
+    $(function(){
+        var shop = document.querySelector("nav>ul>li:nth-child(1)");
+        var area = document.querySelector("nav>ul>li:nth-child(2)");
+        var price = document.querySelector("nav>ul>li:nth-child(3)");
+        var select = document.querySelector("nav>.select");
+        var selectUl = select.querySelector("ul");
+        var selectLis = selectUl.querySelectorAll("li");
+        var mainUl = document.querySelector("main>ul:first-child");
+        var shopid = "0";
+        var areaid = "0";
+        getData();
+        common.tap(shop,function(e){
+            $.ajax({
+                url:"http://mmb.ittun.com/api/getgsshop",
+                before:function(){
+                    if(select.hasClass("hide")){
+                        $(select).removeClass("hide");
+                    }else{
+                        $(select).removeClass("hide");
+                    }
+                },
+                success:function(result){
+                    var html = template("selectShop",result);
+                    $(selectUl).html(html);
+                    $(select).toggleClass("hide");
+                },
+                complete:function(){
+                    selectLis = selectUl.querySelectorAll("li");
+                    for(var i = 0 ;i<selectLis.length;i++){
+                        common.tap(selectLis[i],function(e){
+                            shop.querySelector("span:first-child").innerHTML = e.target.innerHTML;
+                            shopid = e.target.getAttribute("class");
+                            getData();
+                            $(select).addClass("hide");
+                        })
+                    }
+                }
+            });
+        });
+        common.tap(area,function(){
+            $.ajax({
+                url:"http://mmb.ittun.com/api/getgsshoparea",
+                success:function(result){
+                    var html = template("selectArea",result);
+                    $(selectUl).html(html);
+                    $(select).toggleClass("hide");
+                },
+                complete:function(){
+                    selectLis = selectUl.querySelectorAll("li");
+                    for(var i = 0 ;i<selectLis.length;i++){
+                        common.tap(selectLis[i],function(e){
+                            area.querySelector("span:first-child").innerHTML = e.target.innerHTML.split("（")[0];
+                            areaid = e.target.getAttribute("class");
+                            getData();
+                            $(select).addClass("hide");
+                        })
+                    }
+                }
+            });
+        });
+//        common.tap(price,function(e){
+//            $(selectUl).html("<li>全部价格</li>");
+//            $(select).toggleClass("hide");
+//            selectLis = selectUl.querySelectorAll("li");
+//            for(var i = 0 ;i<selectLis.length;i++){
+//                common.tap(selectLis[i],function(e){
+//                    area.querySelector("span:first-child").innerHTML = e.target.innerHTML.split("（")[0];
+//                    areaid = e.target.getAttribute("class");
+//                    getData();
+//                    $(select).toggleClass("hide");
+//                })
+//            }
+//        });
+        function getData(){
+            $.ajax({
+                url:"http://mmb.ittun.com/api/getgsproduct",
+                data:{shopid:shopid,areaid:areaid},
+                success:function(result){
+                    var html = template("product",result);
+                    mainUl.innerHTML = html;
+                }
+            });
+        }
+    });
+</script>

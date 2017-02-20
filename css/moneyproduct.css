@@ -1,0 +1,258 @@
+
+
+
+
+body,html,
+.cu-content {
+    padding: 4px 10px;
+    background: #ffffff;
+}
+
+header {
+    width: 100%;
+    height: 44px;
+    text-align: center;
+    display: flex;
+    line-height: 44px;
+    background-color: #e92322;
+}
+header .back,
+header .home {
+    width: 50px;
+    height: 100%;
+}
+header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    flex:1;
+}
+header .back a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    color: #ffffff;
+}
+header .home {
+    background-size:30px 30px;
+    background-clip: content-box;
+    background-image: url(../images/header_app.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.cu-content h3 {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: left;
+    text-align-last:left ;
+    color: #5a5a5a;
+    line-height: normal;
+    margin: 10px auto 5px;
+}
+.cu-content .info {
+    margin: 12px auto;
+    line-height: 24px;
+    color: #999999;
+    font-size: 12px;
+}
+.cu-content .info span {
+    color: #999999;
+    vertical-align: middle;
+}
+.cu-content .info span.mall {
+    margin: 0 4px;
+}
+.cu-content .info span.addTime,
+.cu-content .info span.author{
+    margin-right: 4px;
+}
+.cu-content .picwrap {
+    width: 120px;
+    float: right;
+    margin: 12px auto auto 10px;
+    overflow: hidden;
+}
+.cu-content .picwrap img {
+    width: 120px;
+    height: 120px;
+    vertical-align: middle;
+    border: none;
+}
+.cu-content .conn {
+    font-size: 16px;
+    word-break: break-all;
+    line-height: 24px;
+    color: #606060;
+    padding-bottom: 20px;
+}
+.cu-content .conn p {
+    line-height: 24px;
+    color: #606060;
+    word-break: break-all;
+    margin: 6px auto;
+}
+.cu-content .conn p img {
+    max-width: 100%;
+    height:auto;
+    vertical-align: middle;
+    border:0;
+}
+
+.area {
+    text-align: center;
+}
+.area .s {
+    position: relative;
+    display: inline-block;
+    line-height: 38px;
+    padding: 0 20px 0 16px;
+    cursor: pointer;
+    z-index: 1;
+}
+.area span .drop {
+    left: -6px;
+    background-color: #fff;
+    width: 138px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.1);
+    border-color: #f1f1f1 #f1f1f1 #dbdbdb;
+    border-width: 0 1px 1px;
+}
+.area span .drop ul li {
+    font-size: 12px;
+    font-family: Microsoft Yahei;
+    line-height: 20px;
+}
+.area span .drop ul li a {
+    display: block;
+    padding: 0 10px;
+}
+.area span .drop ul li a span {
+    border-bottom: 1px dotted silver;
+    display: block;
+    padding: 0 10px;
+    text-align: left;
+}
+.area span .drop strong {
+    float: right;
+    font-weight: 400;
+    color: #e92322;
+}
+.golink a {
+    display: block;
+    margin: 20px 10px;
+    background: #e92322;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.erweima {
+    text-align: center;
+    margin: 20px 10px;
+}
+.erweima img {
+    width: 100%;
+    height: auto;
+}
+.cu-content-pl {
+    background: #FFFFFF;
+
+}
+.cu-content-pl .title {
+    font-size: 16px;
+    padding: 6px 8px;
+}
+.cu-content-pl .reply {
+    padding: 6px 8px;
+}
+.cu-content-pl .reply .form {
+    border: 2px solid #eceae8;
+    border-radius: 2px;
+    padding: 4px 0 0 4px;
+    background-color: #fff;
+    position: relative;
+    width: 98%;
+    margin: 0 auto;
+}
+.cu-content-pl .reply .form textarea {
+    width: 100%;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: none;
+    line-height: 22px;
+    font-size: 14px;
+    outline: 0;
+    color: #666;
+    height: 68px;
+}
+.cu-content-pl .reply .ctrl {
+    background-color: #fbfbfb;
+    height: 40px;
+    margin-left: -4px;
+    border-top: 1px solid #f2f2f2;
+}
+.cu-content-pl .reply .ctrl input {
+    position: absolute;
+    right: 0px;
+    background: #e92322;
+    border: none;
+    border: 2px solid #e92322;
+    border-left: none;
+    border-top: none;
+    padding: 0;
+    width: 100px;
+    height: 39px;
+    color: #fff;
+    outline: 0;
+    border-radius: 0 0 2px 0;
+    font-size: 16px;
+}
+.cu-content-pl .tit {
+    font-size: 16px;
+    padding: 6px 8px;
+}
+.cu-content-pl .list ul li {
+    padding: 18px 10px;
+    background-color: #fff;
+}
+.cu-content-pl .list .userimg {
+    width: 40px;
+    float: left;
+    overflow: hidden;
+}
+.cu-content-pl .list .userimg img {
+    width: 40px;
+    background-position: top;
+    border-radius: 20px;
+    height: 40px;
+}
+.cu-content-pl .list .con {
+    overflow: hidden;
+    padding-left: 10px;
+}
+.cu-content-pl .list .con .name {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+.cu-content-pl .list .con .name .username {
+    color: #5997c0;
+    font-size: 13px!important;
+    float: left;
+}
+.cu-content-pl .list .con .name .time {
+    color: #999;
+    font-size: 13px!important;
+    float: right;
+}
+.content {
+    word-break: break-all;
+    font-size: 15px!important;
+    color: #606060;
+    line-height: 20px;
+}

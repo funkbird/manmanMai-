@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/inlanddiscount.css"/>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="lib/comment.js"></script>
+</head>
+
+<body>
+<!--头部开始-->
+<div class="head">
+    <div class="head_left">
+        <a href="inlanddiscount.html" class="icon_back"></a>
+    </div>
+    <h1>国内折扣</h1>
+    <div class="head_right">
+        <a href="http://m.manmanbuy.com/?o=download" onclick="trackEvent('header部下载');" class="icon-app"></a>
+    </div>
+</div>
+<!--头部结束-->
+<div class="content">
+    <!-- 中间模板内容-->
+    <div class="container">
+        <!-- 模板开始-->
+        <script type="text/template" id="water">
+            <% for (var i=0; i< items.length; i++){ %>
+            <div class="cu-content">
+                <h3 class="title"><%=items[i].productName%></h3>
+                <h4><%= items[i].productPrice%></h4>
+                <div class="info">
+                    <span class="mall"><%= items[i].productFrom%></span>
+                <span class="addtime" style="margin-right: 4px;">
+                        <%= items[i].productTime%>
+                </span>
+                    <span class="author"><%= items[i].productTips%></span>
+                </div>
+                <div class="content clearfix">
+                    <div id="box" class="box">
+                        <div class="picwrap" id="smallBox">
+                            <%=#items[i].productImg%>
+                            <div class="mask" id="mask"></div>
+                        </div>
+                        <div class="big" id="bigBox">
+                            <div>亲^_^,请将手指移入左侧商品进行展示哦!</div>
+                            <%=#items[i].productImg%>
+                       </div>
+                   </div>
+                       <div class="conn">
+                       <!--内容开始-->
+                        <%= items[i].productInfo%>
+                        <!--内容结束-->
+                        </div>
+
+                </div>
+
+                <div class="golink">
+                    <a href="redirect.aspx?tjid=540281&amp;y=cu_share" target="_blank">
+                        <i class="icon-gobuy">前往购买</i>
+                    </a>
+                </div>
+            </div>
+            <% }%>
+        </script>
+        <!-- 模板结束-->
+    </div>
+    <!-- 下面固定评伦区-->
+        <div class="center-img" style="text-align: center; margin: 20px 10px;">
+            <img src="images/mmbweixin2.png" style="width: 100%; height: 233px;">
+        </div>
+    <div class="box comment" id="weibo">
+        <div class="tit" style="height: 28px">发表评论</div>
+        <textarea name="" id="txt" cols="30" rows="10" placeholder="您的好评,将是我们前进的动力!谢谢^_^"></textarea>
+        <div class="ctrl">
+        <button id="btn" class="tjdp">发布评论</button>
+
+        </div>
+        <div class="tit  but_tit">
+            最新评论
+            <ul id="ul">
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="footer">
+    <footer class="index_footer">
+        <ul class="clearfix">
+            <li><a href="javascript:;" id="login">登录</a></li>
+            <li><a href="javascript:;" id="regist">注册</a></li>
+            <li><a href=""><span class="totop"></span>返回顶部</a></li>
+        </ul>
+        <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+        <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+    </footer>
+</div>
+
+<!--登录-->
+<div class="login">
+    <div class="cancel">X</div>
+    <form action="">
+        <input type="text" placeholder="请输入用户名" />
+        <input type="password" placeholder="请输入密码" />
+        <input type="submit" value="登录"/>
+    </form>
+</div>
+<!--注册-->
+<!--注册-->
+<div class="regist">
+    <div class="cancel">X</div>
+    <form action="register.php">
+        <input type="text" placeholder="请输入用户名" name="" id="userName"/>
+        <p></p>
+        <input type="password" placeholder="请输入密码" name="" id="pwd"/>
+        <p></p>
+        <input type="password" placeholder="请重新输入密码" name="" id="pwd1"/>
+        <p></p>
+        <input type="email" placeholder="请输入邮箱" name="" id="mail"/>
+        <p></p>
+        <input type="tel" placeholder="请输入电话" name="" id="tel"/>
+        <p></p>
+        <input type="text" id="invalidate" placeholder="请输入验证码"/> <input id="sendMessage" type="button" value="发送验证码"/>
+        <br/>
+        <input type="submit" value="注册" id="register"/>
+    </form>
+</div>
+<!--底部特效-->
+
+</body>
+</html>
+<script>
+    $(function () {
+        var productid = common.getUrlParam("productid");
+        $.ajax({
+            url: "http://192.168.37.76:9090/api/getdiscountproduct",
+            data: {"productid": productid},
+            success: function (data) {
+                var items=data.result;
+                var html=template("water",{items:items});
+                $(".container").append(html);
+               var con = $("h3").html();
+                document.title = con;
+                //1. 先得到要操作的对象
+//               最外面的盒子
+                var box = document.getElementById("box");
+//                console.log(box);
+//                小盒子
+                var smallBox= document.getElementById("smallBox");
+//                console.log(smallBox);
+//                遮罩层
+                var mask = document.getElementById("mask");
+//                console.log(mask);
+//                大盒子
+                var bigBox = document.getElementById("bigBox");
+//                console.log(bigBox);
+//                大盒子里的图片
+//                var img=document.getElementById("bigImg");
+                var img = bigBox.children[1];
+//                console.log(img);
+                smallBox.onmouseout =function(){
+                    mask.style.display = "none";
+                    img.style.display="none";
+                }
+                // 2. 鼠标移入盒子的时候，显示遮罩层
+                smallBox.onmousemove = function(event){
+                    event = event || window.event;
+                    mask.style.display = "block";// 让遮罩层显示出来
+                    bigBox.style.display = "block";
+                    img.style.display = "block";
+                    // 3. 让遮罩层跟随鼠标移动   先求出鼠标在盒子中的坐标
+                    var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+                    var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+                    var x = pageX -  box.offsetLeft;
+                    var y = pageY - box.offsetTop;
+                    x = x - mask.offsetWidth/2;
+                    y = y - mask.offsetHeight / 2;
+                    x= x<0?0:x;
+                    y = y<0?0:y;
+                    x = x>box.offsetWidth-mask.offsetWidth?box.offsetWidth - mask.offsetWidth:x;
+                    y = y>box.offsetHeight-mask.offsetHeight?box.offsetHeight-mask.offsetHeight:y;
+                    console.log(x);
+                    console.log(y);
+                    mask.style.left = x + 'px';
+                    mask.style.top = y + 'px';
+                    // 4. 让大盒子显示出来，然后让大盒子跟跟随鼠标移动
+                    // 让图片等比例的进行一个移动
+                    img.style.left = -bigBox.offsetWidth/mask.offsetWidth* x + 'px';
+                    img.style.top = -bigBox.offsetHeight/mask.offsetHeight *y+'px';
+                }
+            }
+        })
+    })
+</script>
+
+<script>
+    var box=$$("weibo");
+    var txt =$$("txt");
+    var btn=$$("btn");
+    var ul=$$("ul");
+    btn.onclick=function(){
+        if(txt.value.length==0){
+            alert("请输入内容");
+            return;
+        }
+        var li =document.createElement("li")
+        var lis =ul.children;
+        if(lis.length==0){
+            ul.appendChild(li);
+        }else{
+            ul.insertBefore(li,lis[0]);
+        }
+        li.innerHTML=txt.value;
+        txt.value="";
+        var input =document.createElement("input");
+        input.type="button";
+        input.value="删除";
+        li.appendChild(input);
+        input.onclick =function(){
+            this.parentNode.parentNode.removeChild(this.parentNode);
+        }
+    }
+</script>

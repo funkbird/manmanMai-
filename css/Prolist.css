@@ -1,0 +1,274 @@
+body{
+    background-color: #efefef;
+}
+.prolist{
+    padding-bottom: 40px;
+}
+.index_footer{
+    height: auto;
+}
+.prolist > .prolist_box{
+    background-color: #fff;
+}
+.prolist > .prolist_box > .prolist_nav{
+    height: 36px;
+    line-height: 36px;
+    padding-left: 15px;
+    font-size: 14px;
+    background-color: #ebebeb;
+    border-top: solid 1px #ebebeb;
+    border-bottom: 1px solid #ccc;
+    background: -webkit-gradient(linear,0 0,0 100%,from(#ffffff),to(#ebebeb));
+}
+.prolist > .prolist_box > .prolist_nav > .select{
+    float: right;
+    display: block;
+    margin-right: 8px;
+    height: 28px;
+    background-color: #d0d0d0;
+    background: -webkit-gradient(linear,0 0,0 100%,from(#d7d7d7),to(#f5f5f5));
+    border-bottom: 1px solid #bababa;
+    box-shadow: 0 1px 2px #888;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 28px;
+    overflow: hidden;
+    border: none;
+    padding: 0 16px;
+    margin-top: 4px;
+}
+.prolist > .prolist_box > .prolist_content > ul > li{
+    height: 120px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.prolist > .prolist_box > .prolist_content > ul > li .info{
+    padding-left: 120px;
+    margin-top: -100px;
+}
+.prolist > .prolist_box > .prolist_content > ul > li .info > .tit{
+    height: 44px;
+    line-height: 22px;
+    font-size: 14px;
+    color: black;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.prolist > .prolist_box > .prolist_content > ul > li .info .price{
+    display:    inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 18px;
+    color: red;
+}
+.prolist > .prolist_box > .prolist_content > ul > li .info > .other{
+    height: 24px;
+    line-height: 24px;
+}
+.prolist > .prolist_box > .prolist_content > ul > li .info > .other > span{
+    padding-right: 10px;
+}
+.star {
+    background-image: url("../images/starbg.svg");
+    display: inline-block;
+    width: 90px;
+    height: 18px;
+    vertical-align: middle;
+    float: right;
+    -webkit-background-size: 18px 18px;
+    background-size: 18px 18px;
+}
+.star1,.star2,.star3,.star4,.star5,.star35{
+    background-image: url("../images/star.svg");
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    font-size: 18px;
+    -webkit-background-size: 18px 18px;
+    background-size: 18px 18px;
+}
+.star5{
+    width: 100%;
+}
+.star4{
+    width: 80%;
+}
+.star3{
+    width: 60%;
+}
+.star35{
+    width: 70%;
+}
+.prolist > .prolist_box > .paging > ul{
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+}
+.prolist > .prolist_box > .paging > ul > li{
+    height: 34px;
+    width: 33.3%;
+    float: left;
+}
+.prolist > .prolist_box > .paging > ul > li > a{
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #d4d4d4;
+    background: -webkit-gradient(linear,0 0,0 100%,from(#f1f1f1),to(#d4d4d4));
+}
+.prolist > .prolist_box > .paging > ul > li > select{
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 5px;
+}
+.prolist > .footer{
+    margin-top: -10px;
+    text-align: center;
+}
+.prolist > .footer > ul > li{
+    width: 33.3%;
+    float: left;
+    border-right: 1px solid #c4c4c4;
+    box-sizing: border-box;
+}
+.prolist > .footer > ul > li > a{
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    border-top: 1px solid #c4c4ce;
+    border-bottom: 1px solid #c4c4ce;
+    background-color: #efefef;
+}
+.prolist > .footer a{
+    color: #000;
+}
+.app_promotion_bar{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #faf8f5;
+    z-index: 999;
+}
+.app_promotion_bar > .close{
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    top: 0;
+    left: 0;
+    padding: 19px 12px 20px;
+    margin: 10px 10px;
+    background-image: url("https://img.alicdn.com/imgextra/i3/379516416/TB2U68FkXXXXXXBXFXXXXXXXXXX_!!379516416.png");
+    -webkit-background-size:21px;
+    background-size: 21px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.app_promotion_bar > .icon_man{
+    position: absolute;
+    background-image: url("http://m.manmanbuy.com/download/images/logo.png");
+    width: 41px;
+    height: 41px;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: 41px 41px;
+    background-size: 41px 41px;
+    left: 46px;
+    bottom: 10px;
+}
+.app_promotion_bar > p:nth-of-type(1){
+    margin-top: 12px;
+    padding-left: 107px;
+}
+.app_promotion_bar > p:nth-of-type(2){
+    padding-left: 107px;
+}
+.app_promotion_bar > .ins{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    border: 1px solid #ff9843;
+    border-radius: 5px;
+    padding:0px 15px;
+    background-color: #ff9843;
+}
+.prolist_box > .screen{
+    width: 100%;
+    background-color: #ebebeb;
+    position: absolute;
+    display: none;
+    z-index: 3;
+}
+.prolist_box > .screen > ul > li{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+
+}
+.prolist_box > .screen > ul > li > a{
+    display: block;
+    width: 95%;
+    padding: 0 15px;
+    color: #333;
+}
+.prolist_box > .screen > ul > li:active{
+    background-color: #ccc;
+}
+.prolist_box > .screen > div {
+    text-align: center;
+    height: 34px;
+}
+.prolist_box > .screen > div > a{
+    display: block;
+    height: 32px;
+    background-color: #d4d4d4;
+    background: -webkit-gradient(linear,0 0,0 100%,from(#ffffff),to(#d0d0d0));
+    box-shadow: 0 0 1px #666;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 32px;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.loading{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    display: none;
+}
+@keyframes refresh {
+    from{
+
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+.icon_refresh{
+    margin: 0 auto;
+    display: block;
+    color: #9d9d9d;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    animation: refresh 1s linear infinite;
+    transform-origin: center center;
+}

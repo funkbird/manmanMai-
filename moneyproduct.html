@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>moneyproduct</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/moneyproduct.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/template-native.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="js/moneyproduct.js"></script>
+</head>
+<body>
+<!-- 头部1-->
+<header>
+    <div class="back fl">
+        <a href="moneyctrl.html" class="icon icon_back"></a>
+    </div>
+    <h1>国内折扣</h1>
+    <div class="home fr">
+    </div>
+</header>
+    <main>
+        <script type="text/html" id="moneyproduct">
+            <%for( var i = 0; i < result.length;i++){%>
+            <div class="container">
+                <div class="cu-content">
+                    <h3><%=result[i].productName%></h3>
+                    <h4></h4>
+                    <div class="info">
+                        <span class="mall"><%=result[i].productFrom%></span>
+                        <span class="addTime"><%=result[i].productTime%></span>
+                        <span class="author"><%=result[i].productTips%></span>
+                    </div>
+                    <div class="content clearfix">
+                        <div class="picwrap">
+                            <%=#result[i].productImgSm%>
+                        </div>
+                        <div class="conn">
+                            <p><%=result[i].productInfo%></p>
+                            <p></p>
+                            <p> <%=result[i].productInfo1%></p>
+                            <p></p>
+                            <p>
+                                <%=#result[i].productImgLg%>
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <!--地区-->
+                <div class="area">
+                <span class="s">
+                    <div class="drop">
+                        <%=#result[i].productCity%>
+                    </div>
+                </span>
+                </div>
+                <!--前往购买-->
+                <div class="golink">
+                    <a href="redirect.aspx?tjid=521575&y=cu_share">
+                        <i class="icon-gobuy">前往购买</i>
+                    </a>
+                </div>
+                <!--二维码-->
+                <div class="erweima">
+                    <img src="images/mmbweixin2.png" alt="">
+                </div>
+                <!--评论-->
+                <div class="cu-content-pl ui-border-t">
+                    <%=# result[i].productComment%>
+                </div>
+            </div>
+            <%}%>
+        </script>
+    </main>
+    <div class="footer">
+        <footer class="index_footer">
+            <ul class="clearfix">
+                <li><a href="javascript:;" id="login">登录</a></li>
+                <li><a href="javascript:;" id="regist">注册</a></li>
+                <li><a href=""><span class="totop"></span>返回顶部</a></li>
+            </ul>
+            <p><a href="" style="color:#e92322"> 手机APP下载 </a><a href="" style="color:black"> 慢慢买手机版 </a><span style="color:grey"> -- 掌上比价平台</span></p>
+            <p><a href="" style="color:grey">m.manmanbuy.com</a></p>
+        </footer>
+    </div>
+    <!--登录-->
+    <div class="login">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="submit" value="登录"/>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="regist">
+        <div class="cancel">X</div>
+        <form action="">
+            <input type="text" placeholder="请输入用户名" name="" id=""/>
+            <input type="password" placeholder="请输入密码" name="" id=""/>
+            <input type="tel" placeholder="请输入电话" name="" id=""/>
+            <input type="email" placeholder="请输入邮箱" name="" id=""/>
+            <input type="submit" value="注册"/>
+        </form>
+    </div>
+
+    <!--底部特效-->
+    <script>
+        //点击登录
+        function letDivCenter(divName){
+            var top = ($(window).height() - $(divName).height())/2;
+            var left = ($(window).width() - $(divName).width())/2;
+            var scrollTop = $(document).scrollTop();
+            var scrollLeft = $(document).scrollLeft();
+            $(divName).css( { position : 'absolute', 'top' : top + scrollTop, left : left + scrollLeft } ).show();
+        }
+
+        $("#login").on("click",function(){
+
+            letDivCenter($(".login"));
+
+        });
+        $(".login>.cancel").on("click",function(){
+            $(this).parent().hide();
+        });
+
+        //点击注册
+        $("#regist").on("click",function(){
+
+            letDivCenter($(".regist"));
+
+        });
+        $(".regist>.cancel").on("click",function(){
+            $(this).parent().hide();
+        });
+    </script>
+</body>
+</html>
